@@ -53,6 +53,14 @@ export default function Meetings() {
             window.open(res.zoom);
         }
         else{
+            axios.post('https://zoom.us/oauth/token',
+            {grant_type: 'authorization_code',})
+
+
+
+
+
+
             axios.post("/api/createzoom/", {zoom: userId}).then((res) => setStartLink(res.data.start_url));
             console.log(startLink);
             axios.post("/api/changemeeting/", {id: id, change: "zoom", zoom: startLink});
