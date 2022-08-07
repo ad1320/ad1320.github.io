@@ -11,6 +11,9 @@ export default function Meetings() {
 
     const user = localStorage.getItem('user');
 
+    const clientID = "4KJSZCCRTgO1_2PsWxrkWg";
+    const secret = "VMztzBcxbjRfa7903tNhJGDSs1zVkekB";          //hide these probably
+
     let btnRef = React.useRef();
 
     const [mreqData, setMreqData] = React.useState([]);
@@ -53,13 +56,20 @@ export default function Meetings() {
             window.open(res.zoom);
         }
         else{
+            axios.post('https://zoom.us/oauth/authorize?response_type=code&client_id=4KJSZCCRTgO1_2PsWxrkWg&redirect_uri=https%3A%2F%2Fwww.chesspal.org%2F');
+            let code = window.location.pathname.substring(6);
+            console.log(code);
             axios.post('https://zoom.us/oauth/token',
-            {grant_type: 'authorization_code',})
-
-
-
-
-
+            {
+                grant_type: 'authorization_code',
+                code: code,
+                redirect_uri: 'https://www.chesspal.org/'
+            },
+            {
+                headers: {
+                    Authorization: 'Basic ' + Buffer.from(clientID + ':' + secret).toString('base64')
+                }
+            }).then(((res) => console.log(res)));
 
             axios.post("/api/createzoom/", {zoom: userId}).then((res) => setStartLink(res.data.start_url));
             console.log(startLink);
