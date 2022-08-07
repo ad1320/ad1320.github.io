@@ -125,10 +125,10 @@ class App extends React.Component {
             <UserBar></UserBar>
 
             <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/pals" element={<PalsPage />} />
-              <Route path="/meetings" element={<Meetings />} />
-              <Route path="/contact" element={<Contact />} />
+              <Route path="ad1320.github.com/" element={<Home />} />
+              <Route path="ad1320.github.com/pals" element={<PalsPage />} />
+              <Route path="ad1320.github.com/meetings" element={<Meetings />} />
+              <Route path="ad1320.github.com/contact" element={<Contact />} />
             </Routes>
 
           </div>
