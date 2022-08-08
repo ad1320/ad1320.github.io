@@ -2,7 +2,7 @@ import './App.css';
 import * as React from "react";
 import axios from 'axios';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Routes,
   Route,
   NavLink,
@@ -125,10 +125,10 @@ class App extends React.Component {
             <UserBar></UserBar>
 
             <Routes>
-              <Route path="chesspal.org/" element={<Home />} />
-              <Route path="chesspal.org/pals" element={<PalsPage />} />
-              <Route path="chesspal.org/meetings" element={<Meetings />} />
-              <Route path="chesspal.org/contact" element={<Contact />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/pals" element={<PalsPage />} />
+              <Route path="/meetings" element={<Meetings />} />
+              <Route path="/contact" element={<Contact />} />
             </Routes>
 
           </div>
