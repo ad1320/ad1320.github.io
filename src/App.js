@@ -2,7 +2,7 @@ import './App.css';
 import * as React from "react";
 import axios from 'axios';
 import {
-  HashRouter as Router,
+  BrowserRouter as Router,
   Routes,
   Route,
   NavLink,
@@ -83,7 +83,7 @@ class App extends React.Component {
   render() {
     if (!localStorage.getItem('user')) {
       return (
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
           <div>
 
             <div className="Home">
@@ -124,12 +124,12 @@ class App extends React.Component {
 
             <UserBar></UserBar>
 
-            <Routes>
+            <Routes basename={process.env.PUBLIC_URL}>
               <Route path="/" element={<Home />} />
               <Route path="/pals" element={<PalsPage />} />
               <Route path="/meetings" element={<Meetings />} />
               <Route path="/contact" element={<Contact />} />
-            </Routes>
+            </Routes >
 
           </div>
 
@@ -141,7 +141,7 @@ class App extends React.Component {
     }
 
     else {
-      return <Router>
+      return <Router basename={process.env.PUBLIC_URL}>
         <div className="Home">
           <div class="flex-container">
             <div class="banner">
