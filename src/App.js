@@ -2,7 +2,7 @@ import './App.css';
 import * as React from "react";
 import axios from 'axios';
 import {
-  HashRouter as Router,
+  BrowserRouter as Router,
   Routes,
   Route,
   NavLink,
